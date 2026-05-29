@@ -1,4 +1,4 @@
-import { ArrowLeft, GraduationCap, Users, Smartphone, Zap, Shield, Database, Layout } from 'lucide-react';
+import { ArrowLeft, GraduationCap, Users, Zap, Shield, Database, Layout } from 'lucide-react';
 
 interface InformeProps {
   onBack: () => void;
