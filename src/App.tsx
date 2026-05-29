@@ -1,6 +1,7 @@
-import React from 'react';
-import { ExternalLink, GraduationCap, Users, Heart, Smartphone } from 'lucide-react';
+import React, { useState } from 'react';
+import { ExternalLink, GraduationCap, Users, Heart, Smartphone, FileText } from 'lucide-react';
 import './App.css';
+import Informe from './components/Informe';
 
 interface AppLink {
   title: string;
@@ -42,6 +43,12 @@ const appLinks: AppLink[] = [
 ];
 
 function App() {
+  const [view, setView] = useState<'home' | 'informe'>('home');
+
+  if (view === 'informe') {
+    return <Informe onBack={() => setView('home')} />;
+  }
+
   return (
     <div className="min-h-screen relative flex flex-col">
       <div className="bg-gradient" />
@@ -63,7 +70,15 @@ function App() {
           <p className="text-xl md:text-2xl text-text-muted max-w-2xl mx-auto font-light">
             Esc. N° 4-012 Ing. Ricardo Videla
           </p>
-          <div className="h-1 w-24 bg-accent mx-auto mt-8 rounded-full" />
+          <div className="h-1 w-24 bg-accent mx-auto mt-8 rounded-full mb-8" />
+          
+          <button 
+            onClick={() => setView('informe')}
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 shadow-sm hover:shadow-md rounded-full text-primary font-bold transition-all hover:-translate-y-1"
+          >
+            <FileText size={18} />
+            Ver Informe Institucional
+          </button>
         </div>
       </header>
 
