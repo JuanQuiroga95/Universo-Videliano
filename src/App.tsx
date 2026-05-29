@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExternalLink, GraduationCap, Users, Heart } from 'lucide-react';
+import { ExternalLink, GraduationCap, Users, Heart, Smartphone } from 'lucide-react';
 import './App.css';
 
 interface AppLink {
@@ -31,6 +31,13 @@ const appLinks: AppLink[] = [
     url: "https://vinculo-mendoza.vercel.app/",
     icon: <Heart size={32} />,
     color: "#D44D44"
+  },
+  {
+    title: "Test Bienestar Digital",
+    description: "Evaluación anónima para descubrir tu relación con el celular y la tecnología.",
+    url: "https://test-bienestar.vercel.app/",
+    icon: <Smartphone size={32} />,
+    color: "#8B5CF6"
   }
 ];
 
@@ -62,7 +69,7 @@ function App() {
 
       {/* Main Content */}
       <main className="flex-grow container py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {appLinks.map((link, index) => (
             <a 
               key={index}
