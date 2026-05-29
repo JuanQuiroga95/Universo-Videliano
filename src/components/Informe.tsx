@@ -8,14 +8,22 @@ export default function Informe({ onBack }: InformeProps) {
   return (
     <div className="min-h-screen bg-white text-[#1a1a1a] font-sans overflow-x-hidden selection:bg-primary selection:text-white">
       {/* Navigation Bar */}
-      <nav className="fixed top-0 left-0 right-0 p-4 z-50 flex justify-between items-center bg-white/80 backdrop-blur-md border-b border-gray-100">
+      <nav className="fixed top-0 left-0 right-0 p-4 z-50 flex justify-between items-center bg-white/80 backdrop-blur-md border-b border-gray-100 print:hidden">
         <button 
           onClick={onBack}
           className="flex items-center gap-2 text-primary font-semibold hover:text-primary-dark transition-colors"
         >
           <ArrowLeft size={20} /> Volver al Portal
         </button>
-        <span className="text-sm font-medium text-gray-500 uppercase tracking-widest">Informe Institucional</span>
+        <div className="flex items-center gap-4">
+          <span className="hidden sm:inline text-sm font-medium text-gray-500 uppercase tracking-widest">Informe Institucional</span>
+          <button 
+            onClick={() => window.print()}
+            className="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-primary-dark transition-colors shadow-sm"
+          >
+            Descargar PDF
+          </button>
+        </div>
       </nav>
 
       {/* 1. PORTADA */}
@@ -24,7 +32,8 @@ export default function Informe({ onBack }: InformeProps) {
         <div className="absolute inset-0 opacity-10 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
         
         <div className="z-10 w-full max-w-4xl mx-auto flex flex-col items-center text-center animate-fade-in">
-          <div className="uppercase tracking-[0.3em] text-sm text-accent-light mb-4 font-semibold">
+          <img src="/logo.png" alt="Logo Escuela Videla" className="w-24 h-24 md:w-32 md:h-32 mb-6 drop-shadow-2xl" />
+          <div className="uppercase tracking-[0.3em] text-sm text-gray-200 mb-4 font-semibold">
             Escuela N° 4-012 · Ing. Ricardo Videla
           </div>
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/30 bg-black/20 text-accent-light text-xs font-bold uppercase tracking-widest mb-12">
@@ -40,12 +49,19 @@ export default function Informe({ onBack }: InformeProps) {
           </p>
 
           <div className="bg-white p-4 rounded-3xl shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-300">
-            <div className="w-48 h-48 bg-gray-100 rounded-2xl flex items-center justify-center border-2 border-dashed border-gray-300 relative">
-              <div className="text-center z-10">
-                <Smartphone size={32} className="mx-auto text-primary mb-2" />
-                <span className="text-sm text-gray-500 font-semibold px-4 block">Escaneá para acceder al portal</span>
+            <div className="w-48 h-48 bg-gray-100 rounded-2xl flex items-center justify-center border-2 border-dashed border-gray-300 relative overflow-hidden">
+              <img 
+                src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://universo-videla.vercel.app/" 
+                alt="QR Code" 
+                className="w-full h-full object-contain mix-blend-multiply"
+              />
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="w-12 h-12 bg-white rounded-lg shadow-lg flex items-center justify-center p-1">
+                    <img src="/logo.png" alt="Logo" className="w-full h-full object-contain" />
+                </div>
               </div>
             </div>
+            <p className="text-sm text-gray-500 font-semibold mt-4">Escaneá para acceder al portal</p>
           </div>
           
           <p className="mt-8 text-sm text-accent font-semibold uppercase tracking-widest flex items-center gap-2">
@@ -373,7 +389,7 @@ export default function Informe({ onBack }: InformeProps) {
             
             <button 
                onClick={onBack}
-               className="inline-flex items-center gap-2 bg-accent hover:bg-accent-light text-primary-dark font-bold px-8 py-4 rounded-full transition-all hover:scale-105 shadow-xl shadow-black/20 mb-20"
+               className="inline-flex items-center gap-2 bg-accent hover:bg-accent-light text-primary-dark font-bold px-8 py-4 rounded-full transition-all hover:scale-105 shadow-xl shadow-black/20 mb-20 print:hidden"
             >
                <ArrowLeft size={20} /> Ir al Portal de Aplicaciones
             </button>
