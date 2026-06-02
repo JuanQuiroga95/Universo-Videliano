@@ -27,7 +27,7 @@ const appLinks: AppLink[] = [
     color: "#C5A059"
   },
   {
-    title: "Vínculo Mendoza",
+    title: "Vínculo Pasantías",
     description: "Portal de conexión y recursos para la comunidad educativa de Mendoza.",
     url: "https://vinculo-mendoza.vercel.app/",
     icon: <Heart size={32} />,
