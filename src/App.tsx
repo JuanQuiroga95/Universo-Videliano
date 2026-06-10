@@ -4,7 +4,7 @@ import './App.css';
 import Informe from './components/Informe';
 
 interface AppLink {
-  title: string;
+  title: React.ReactNode;
   description: string;
   url: string;
   icon: React.ReactNode;
@@ -34,7 +34,12 @@ const appLinks: AppLink[] = [
     color: "#D44D44"
   },
   {
-    title: "TEST ¿QUIEN MANEJA A QUIEN?",
+    title: (
+      <>
+        Test<br />
+        ¿Quien maneja a quien?
+      </>
+    ),
     description: "Evaluación anónima para descubrir tu relación con el celular y la tecnología.",
     url: "https://test-bienestar.vercel.app/",
     icon: <Smartphone size={32} />,
