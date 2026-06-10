@@ -34,7 +34,7 @@ const appLinks: AppLink[] = [
     color: "#D44D44"
   },
   {
-    title: "Test Bienestar Digital",
+    title: "TEST ¿QUIEN MANEJA A QUIEN?",
     description: "Evaluación anónima para descubrir tu relación con el celular y la tecnología.",
     url: "https://test-bienestar.vercel.app/",
     icon: <Smartphone size={32} />,
