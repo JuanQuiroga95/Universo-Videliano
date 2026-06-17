@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, GraduationCap, Users, Heart, Smartphone, FileText } from 'lucide-react';
+import { ExternalLink, GraduationCap, Users, Heart, Smartphone, FileText, BookOpen } from 'lucide-react';
 import './App.css';
 import Informe from './components/Informe';
 
@@ -44,6 +44,13 @@ const appLinks: AppLink[] = [
     url: "https://test-bienestar.vercel.app/",
     icon: <Smartphone size={32} />,
     color: "#8B5CF6"
+  },
+  {
+    title: "Leer en voz alta",
+    description: "Herramienta para practicar y mejorar la lectura y fluidez en voz alta.",
+    url: "https://fluidez-flame.vercel.app/",
+    icon: <BookOpen size={32} />,
+    color: "#3B82F6"
   }
 ];
 
